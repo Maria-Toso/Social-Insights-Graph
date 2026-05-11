@@ -1,53 +1,96 @@
-# 🚀 Social Insights Graph - Neo4j Case Study
+# Social Insights Graph
 
-## 📋 Sobre o Projeto
-Este repositório contém o protótipo funcional de uma ferramenta de análise de mídias sociais desenvolvida para uma startup que precisa de insights reais sobre conexões humanas. Enquanto o SQL chora tentando processar relacionamentos complexos, o **Neo4j** resolve isso com a elegância e a performance de um grafo nativo.
-
----
-
-## 🏗️ Modelo de Dados (Schema)
-O projeto utiliza uma arquitetura de grafos projetada para performance e escalabilidade, focando no que realmente importa: as conexões.
-
-* **Nós (Nodes):**
-    * `Usuario`: O centro da rede (Propriedades: `nome`, `username`, `idade`).
-    * `Postagem`: O conteúdo que gera o engajamento (Propriedades: `texto`, `id`).
-    * `Comunidade`: Grupos de interesse segmentados (Propriedades: `nome`, `area`).
-
-* **Relacionamentos (Relationships):**
-    * `(:Usuario)-[:SEGUE]->(:Usuario)`: Conexões diretas entre usuários.
-    * `(:Usuario)-[:POSTOU]->(:Postagem)`: Autoria de conteúdo original.
-    * `(:Usuario)-[:CURTIU]->(:Postagem)`: Métricas de engajamento e popularidade.
-    * `(:Usuario)-[:PARTICIPA]->(:Comunidade)`: Pertencimento e segmentação de nicho.
+Graph-based social network analysis platform built with Neo4j and Cypher to explore engagement patterns, user relationships, communities, and interaction structures through graph modeling techniques.
 
 ---
 
-## 🛠️ Como Construir a Base (Seed)
-Para popular seu banco de dados com a estrutura de 15 elementos (5 usuários, 5 posts e 5 comunidades), execute o seguinte script no seu console Cypher:
+## Overview
 
-```cypher
-// 1. Criando Usuários
-CREATE (u1:Usuario {nome: "Alice", username: "@alice_tech", idade: 25}),
-       (u2:Usuario {nome: "Bob", username: "@bob_builder", idade: 32}),
-       (u3:Usuario {nome: "Charlie", username: "@char_grafos", idade: 28}),
-       (u4:Usuario {nome: "Diana", username: "@diana_dev", idade: 21}),
-       (u5:Usuario {nome: "Elon", username: "@elon_not_musk", idade: 40});
+This project was developed as a case study focused on graph databases and relationship analysis using Neo4j.
 
-// 2. Criando Postagens
-CREATE (p1:Postagem {id: 101, texto: "Neo4j é incrível para redes sociais!"}),
-       (p2:Postagem {id: 102, texto: "Alguém sabe como otimizar queries Cypher?"}),
-       (p3:Postagem {id: 103, texto: "Amo bases de dados relacionais... Mentira."}),
-       (p4:Postagem {id: 104, texto: "O futuro é feito de conexões."}),
-       (p5:Postagem {id: 105, texto: "Café e grafos, a combinação perfeita."});
+The system models social interactions as connected graph structures, allowing the exploration of:
 
-// 3. Criando Comunidades
-CREATE (c1:Comunidade {nome: "Data Science", area: "Tecnologia"}),
-       (c2:Comunidade {nome: "Graph Lovers", area: "Engenharia"}),
-       (c3:Comunidade {nome: "Dev Life", area: "Carreira"}),
-       (c4:Comunidade {nome: "Neo4j Brasil", area: "Educação"}),
-       (c5:Comunidade {nome: "AI Insights", area: "IA"});
+- User relationships
+- Community detection
+- Engagement analysis
+- Interaction patterns
+- Network connectivity
 
-// 4. Criando Relacionamentos de Exemplo
-CREATE 
-  (u1)-[:SEGUE]->(u2), (u2)-[:SEGUE]->(u3), (u3)-[:SEGUE]->(u4), (u4)-[:SEGUE]->(u5),
-  (u1)-[:POSTOU]->(p1), (u2)-[:CURTIU]->(p1), (u3)-[:CURTIU]->(p1),
-  (u1)-[:PARTICIPA]->(c1), (u2)-[:PARTICIPA]->(c2), (u3)-[:PARTICIPA]->(c4);
+The project demonstrates how graph databases can provide efficient and intuitive solutions for highly connected data scenarios.
+
+---
+
+## Features
+
+- Graph-based relationship modeling
+- Social interaction analysis
+- Cypher queries for data exploration
+- Community and engagement analysis
+- Relationship traversal techniques
+- Connected data visualization
+
+---
+
+## Technologies
+
+- Neo4j
+- Cypher
+- Graph Databases
+- Data Modeling
+
+---
+
+## Architecture
+
+The application uses Neo4j as the primary database to model social relationships as nodes and connections.
+
+### Main concepts:
+
+- Users represented as nodes
+- Interactions represented as relationships
+- Cypher queries for graph traversal
+- Relationship-based analytics
+- Connected data exploration
+
+This approach allows efficient querying of complex relationships and interaction patterns within social networks.
+
+---
+
+## Use Cases
+
+Examples of analysis supported by the project:
+
+- Identifying highly connected users
+- Detecting communities
+- Exploring engagement relationships
+- Analyzing interaction networks
+- Relationship traversal between users
+
+---
+
+## Learning Outcomes
+
+Through this project, I improved my knowledge in:
+
+- Graph database modeling
+- Cypher query development
+- Relationship-based systems
+- Data analysis
+- Connected data structures
+- Recommendation and analytics concepts
+
+---
+
+## Future Improvements
+
+- Interactive frontend dashboard
+- Advanced graph visualizations
+- Real-time analytics
+- API integration
+- Scalable data ingestion
+
+---
+
+## Author
+
+Maria Eduarda Toso
